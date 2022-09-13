@@ -1,0 +1,119 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f6f7f8;
+  font-family: "Roboto Condensed", "Noto Sans TC", sans-serif;
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 85%; /* 新增：寬度和標頭一致 */
+  margin: 0 auto; /* 新增：水平置中 */
+}
+
+.card {
+  /*卡片在容器裡的排版*/
+  flex: 7% 1 1; /* 修改：卡片需要分配剩餘空間 */
+  height: 8vw;
+  border: 2px solid #e0e0e0;
+  margin: 2px;
+  box-sizing: border-box;
+  /*flex-basis, flex-grow, flex-shrink*/
+
+  /*卡片內部元素的牌版*/
+  display: flex;
+  /*main-axis*/
+  flex-direction: column;
+  justify-content: space-around; /*沿主軸的對齊方式*/
+}
+
+.card img {
+  max-width: 30%;
+  align-self: center; /*沿著交叉軸的對齊方式，橫向置中*/
+}
+
+.card p {
+  margin: 3px;
+  font-size: 18px;
+}
+
+.card p:last-child {
+  transform: rotate(180deg);
+}
+
+.back {
+  background: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png");
+  background-size: cover;
+}
+
+.paired {
+  background-color: #dae0e3;
+}
+
+#header {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 1em;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+#header .title {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 3em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+}
+
+#header .score {
+  margin: 0;
+  color: #6c90ac;
+}
+
+#header .tried {
+  margin-top: 0;
+}
+
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #f1c232;
+  }
+}
+
+.wrong {
+  animation: wrongAnimation 0.2s;
+  animation-iteration-count: 5;
+}
+
+/*Game finished*/
+.completed {
+  position: absolute;
+  z-index: 999;
+  top: 33vh;
+  background-color: RGBA(232, 246, 254, 0.8);
+  width: 100vw;
+  padding: 50px 0;
+}
+
+.completed > p {
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  margin: 0;
+}
+
+.completed > p:first-child {
+  font-size: 3em;
+  font-weight: 700;
+  color: #758d9a;
+}
